@@ -187,10 +187,20 @@ class PodPlayerController {
   //Change double tap duration
   void setDoubeTapForwarDuration(int seconds) => _ctr.doubleTapForwardSeconds = seconds;
 
-  //Change double tap duration
-  void setVideoPlayBack(double speed) {
-    _ctr.setVideoPlayBackAsDouble(speed);
+  // Change the video playback speed
+  Future<void> setVideoPlayBack(double speed) async {
+    await _ctr.setVideoPlayBackAsDouble(speed);
   }
+
+  // Change the video looping status
+  Future<void> setVideoLooping(bool looping) async {
+    await _ctr.setLooping(looping);
+  }
+
+  // Change the video quality ( not implemented on YouTube videos )
+  // Future<void> changeVideoQuality(int quality) async {
+  //   await _ctr.changeVideoQuality(quality);
+  // }
 
   ///Jumps to specific position of the video
   Future<void> videoSeekTo(Duration moment) async {
